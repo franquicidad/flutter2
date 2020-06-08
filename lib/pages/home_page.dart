@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       //Darwin revisa esto porfavor...
                       Container(
-                        child: SvgPicture.network("https://www.flaticon.com/free-icon/fingerprint_3039475"),
+                        child: SvgPicture.network("https://www.flaticon.com/free-icon/fingerprint_3039475",width: 50,height: 50,alignment: Alignment.center,),
                       ),
 
                     ],
