@@ -133,6 +133,10 @@ class _HomePageState extends State<HomePage> {
                             "Go to chat"
                         ),
                       ),
+                      //Darwin revisa esto porfavor...
+                      Container(
+                        child: SvgPicture.network("https://www.flaticon.com/free-icon/fingerprint_3039475"),
+                      ),
 
                     ],
                   ),
