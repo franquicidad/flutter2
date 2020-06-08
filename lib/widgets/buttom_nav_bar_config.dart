@@ -44,7 +44,7 @@ class ButtomNav extends StatelessWidget{
                     ),
                     Text(
                       item.label,
-                      style: TextStyle(color: Colors.black,fontSize: 12),
+                      style: TextStyle(color: Colors.black,fontSize: 13),
 
                     )
 

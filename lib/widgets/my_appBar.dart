@@ -4,47 +4,67 @@ import 'package:flutter2/pages/chat_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MyAppBar extends StatelessWidget{
+  final String barTitle;
+  final Color barTitleColor;
+  final Icon leftIcon,rightIcon;
+  final Color iconColor;
+  final bool isDotVisible;
+  final VoidCallback onLeftClick, onRightClick;
+
+  const MyAppBar({Key key,
+    this.leftIcon,
+    this.rightIcon,
+    @required this.iconColor,
+    this.onLeftClick,
+    this.onRightClick,
+    @required this.barTitle,
+    this.barTitleColor=Colors.blue,
+    @required this.isDotVisible})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Colors.transparent,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           CupertinoButton(
             padding: EdgeInsets.all(15),
-              child:Icon(Icons.camera,color: Colors.black,size: 30,),
-              onPressed: (){}
+              child:leftIcon,
+              onPressed: onLeftClick
               ),
-          Text("First App",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),
+          Text(barTitle,style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold,color: barTitleColor,letterSpacing: 1),
           ),
           CupertinoButton(
               padding: EdgeInsets.all(15),
               child:
               Stack(
                 children: <Widget>[
-                  Icon(
-                      Icons.message,
-                      color: Colors.black,
-                      size: 30
-                  ),
+                  rightIcon,
+
                   Positioned(
                     right: 0,
                     top: 0,
                     child:
                     Container(
-                      width: 10,
-                      height: 10,
-                      decoration: BoxDecoration(color: Colors.red,shape: BoxShape.circle),
+
+    width: 10,
+    height: 10,
+
+    decoration: BoxDecoration(
+    color: Colors.red,
+    shape: BoxShape.circle
+
+    ),
+
 
                     ),
                   ),
                 ],
+
               ),
-              onPressed: (){final route= MaterialPageRoute(builder:(BuildContext _ ){
-                return ChatPage();
-              });
-              Navigator.push(context, route);}
+              onPressed: onRightClick,
           ),
 
         ]
